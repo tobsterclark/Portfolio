@@ -6,6 +6,7 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import { useIntersection } from "./hooks/useIntersection";
+import { animations } from "./animations";
 
 export default function App() {
 	const nav = useNavigate();
@@ -16,20 +17,22 @@ export default function App() {
 	const projectsRef = useRef();
 	const main = useRef();
 
-	const aboutViewport = useIntersection(aboutRef, "-100px");
-	const contactViewport = useIntersection(contactRef, "-100px");
-	const projectsViewport = useIntersection(projectsRef, "-100px");
-	const homeViewport = useIntersection(homeRef, "-100px");
+	const aboutViewport = useIntersection(aboutRef, "-40px");
+	const contactViewport = useIntersection(contactRef, "-40px");
+	const projectsViewport = useIntersection(projectsRef, "-40px");
+	const homeViewport = useIntersection(homeRef, "-40px");
 
 	useEffect(() => {
+		animations();
+
 		var sent = "";
-		if (aboutViewport && hash !== "#about" && !projectsViewport && !homeViewport) {
+		if (aboutViewport && hash !== "#about") {
 			nav("#about", { state: { sent: "auto" } });
-		} else if (contactViewport && hash !== "#contact" && !projectsViewport) {
+		} else if (contactViewport && hash !== "#contact") {
 			nav("#contact", { state: { sent: "auto" } });
-		} else if (projectsViewport && hash !== "#projects" && !aboutViewport && !contactViewport) {
+		} else if (projectsViewport && hash !== "#projects") {
 			nav("#projects", { state: { sent: "auto" } });
-		} else if (homeViewport && hash !== "#home" && !aboutViewport) {
+		} else if (homeViewport && hash !== "#home") {
 			nav("#home", { state: { sent: "auto" } });
 		}
 
@@ -38,36 +41,30 @@ export default function App() {
 		}
 
 		if (sent !== "auto") {
-			// need to change it so button only happens once
+			console.log(main.current.scrollTop);
+			if (hash === "" || hash === "#home") {
+				main.current.scrollTo({ top: 0, behavior: "smooth", block: "start" });
+			} else if (hash === "#about") {
+				const y = aboutRef.current.getBoundingClientRect().top + main.current.scrollTop - 105;
+				main.current.scrollTo({ top: y, behavior: "smooth", block: "start" });
+			} else if (hash === "#contact") {
+				const y = contactRef.current.getBoundingClientRect().top + main.current.scrollTop - 105;
+				main.current.scrollTo({ top: y, behavior: "smooth", block: "start" });
+			} else if (hash === "#projects") {
+				const y = projectsRef.current.getBoundingClientRect().top + main.current.scrollTop - 105;
+				main.current.scrollTo({ top: y, behavior: "smooth", block: "start" });
+			}
 
-			// if not a hash link, scroll to top
-			if (hash === "") {
-				window.scrollTo({ top: 0, behavior: "smooth", block: "start" });
-			}
-			// else scroll to id
-			else {
-				setTimeout(() => {
-					const id = hash.replace("#", "");
-					if (id === "home") {
-						homeRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-					} else if (id === "about") {
-						aboutRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-					} else if (id === "contact") {
-						contactRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-					} else if (id === "projects") {
-						projectsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-					}
-				}, 0);
-			}
+			nav(hash, { state: { sent: "auto" } });
 		}
 	}, [pathname, hash, key, aboutViewport, projectsViewport, contactViewport, homeViewport, nav, state]);
 
 	return (
 		<div className="h-screen w-screen">
-			<div className="z-10">
+			<div className="z-20">
 				<Header />
 			</div>
-			<div id="main" ref={main} className="z-5 w-full h-full overflow-x-hidden">
+			<div id="main" ref={main} className="z-10 w-full h-full overflow-x-hidden">
 				<Home ref={homeRef} />
 				<About ref={aboutRef} />
 				<Projects ref={projectsRef} />

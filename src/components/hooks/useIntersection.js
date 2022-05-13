@@ -5,11 +5,12 @@ export const useIntersection = (element, rootMargin) => {
 
 	useEffect(() => {
 		const localElement = element;
+
 		const observer = new IntersectionObserver(
 			([entry]) => {
 				setState(entry.isIntersecting);
 			},
-			{ rootMargin }
+			{ rootMargin: rootMargin, threshold: 0.6 }
 		);
 
 		element.current && observer.observe(localElement.current);

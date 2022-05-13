@@ -5,30 +5,30 @@ import profile from "../images/profile.png";
 export default function Header() {
 	const [navbar, setNavBar] = useState("bg-transparent");
 	const { hash } = useLocation();
-	const [aboutStyles, setAboutStyles] = useState("");
-	const [projectsStyles, setProjectsStyles] = useState("");
-	const [contactStyles, setContactStyles] = useState("");
+	const [aboutStyles, setAboutStyles] = useState("border-transparent");
+	const [projectsStyles, setProjectsStyles] = useState("border-transparent");
+	const [contactStyles, setContactStyles] = useState("border-transparent");
 	const [mobileStyles, setMobileStyles] = useState("hidden");
 	const [hamburgerClicked, setHamburgerClicked] = useState("");
 	const main = document.getElementById("main");
 
 	useEffect(() => {
 		if (hash === "#about") {
-			setAboutStyles("border-b-2 border-blue-500");
-			setProjectsStyles("");
-			setContactStyles("");
+			setAboutStyles("border-blue-500");
+			setProjectsStyles("border-transparent");
+			setContactStyles("border-transparent");
 		} else if (hash === "#projects") {
-			setProjectsStyles("border-b-2 border-blue-500");
-			setAboutStyles("");
-			setContactStyles("");
+			setProjectsStyles("border-blue-500");
+			setAboutStyles("border-transparent");
+			setContactStyles("border-transparent");
 		} else if (hash === "#contact") {
-			setProjectsStyles("");
-			setAboutStyles("");
-			setContactStyles("border-b-2 border-blue-500");
+			setProjectsStyles("border-transparent");
+			setAboutStyles("border-transparent");
+			setContactStyles("border-blue-500");
 		} else {
-			setProjectsStyles("");
-			setAboutStyles("");
-			setContactStyles("");
+			setProjectsStyles("border-transparent");
+			setAboutStyles("border-transparent");
+			setContactStyles("border-transparent");
 		}
 
 		if (main) {
@@ -64,22 +64,22 @@ export default function Header() {
 
 	return (
 		<div>
-			<div className={"top-0 left-0 right-0 fixed w-full hidden md:flex  justify-between py-4 transition duration-300 items-center " + navbar}>
+			<div className={"top-0 left-0 right-0 fixed w-full hidden md:flex z-20 justify-between py-4 transition duration-300 items-center " + navbar}>
 				{/* Logo */}
-				<div className="w-1/2 sm:w-1/3 md:w-1/4 text-center px-10 flex items-center justify-start">
+				<div className="w-1/2 sm:w-1/3 md:w-1/4 text-center px-10 flex gap-x-5 items-center justify-start">
 					<img alt="profile" src={profile} className="w-4/5 md:w-1/3 sm:w-2/3 rounded-full" />
 					<Link to="#home" state={{ sent: "btn" }} className="">
 						Toby Clark
 					</Link>
 				</div>
-				<div className="w-1/4 px-10 justify-evenly flex">
-					<Link to="#about" state={{ sent: "btn" }} className={"pb-2 px-3 " + aboutStyles}>
+				<div className="px-10 justify-evenly flex">
+					<Link to="#about" state={{ sent: "btn" }} className={"pb-2 px-10 border-b-2 " + aboutStyles}>
 						About
 					</Link>
-					<Link to="#projects" state={{ sent: "btn" }} className={"pb-2 px-3 " + projectsStyles}>
+					<Link to="#projects" state={{ sent: "btn" }} className={"pb-2 px-10 border-b-2 " + projectsStyles}>
 						Projects
 					</Link>
-					<Link to="#contact" state={{ sent: "btn" }} className={"pb-2 px-3 " + contactStyles}>
+					<Link to="#contact" state={{ sent: "btn" }} className={"pb-2 px-10 border-b-2 " + contactStyles}>
 						Contact
 					</Link>
 				</div>
