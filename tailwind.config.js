@@ -12,6 +12,7 @@ module.exports = {
 				2000: "2000ms",
 			},
 			animation: {
+				pingOnce: "ping 0.5s cubic-bezier(0, 0, 0.2, 1)",
 				blink: "blink 1s ease-in-out infinite",
 				sliderightin: "sliderightin 0.5s forwards",
 				together: "together 0.5s forwards",
