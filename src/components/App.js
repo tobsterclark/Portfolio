@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import { useIntersection } from "./hooks/useIntersection";
 import { animations } from "./animations";
+import toast, { ToastBar, Toaster } from "react-hot-toast";
 
 export default function App() {
 	const nav = useNavigate();
@@ -26,13 +27,13 @@ export default function App() {
 		animations();
 
 		var sent = "";
-		if (aboutViewport && hash !== "#about") {
+		if (aboutViewport && hash !== "#about" && !projectsViewport && !homeViewport) {
 			nav("#about", { state: { sent: "auto" } });
-		} else if (contactViewport && hash !== "#contact") {
+		} else if (contactViewport && hash !== "#contact" && !projectsViewport) {
 			nav("#contact", { state: { sent: "auto" } });
-		} else if (projectsViewport && hash !== "#projects") {
+		} else if (projectsViewport && hash !== "#projects" && !aboutViewport && !contactViewport) {
 			nav("#projects", { state: { sent: "auto" } });
-		} else if (homeViewport && hash !== "#home") {
+		} else if (homeViewport && hash !== "#home" && !aboutViewport) {
 			nav("#home", { state: { sent: "auto" } });
 		}
 
@@ -70,6 +71,19 @@ export default function App() {
 				<Projects ref={projectsRef} />
 				<Contact ref={contactRef} />
 			</div>
+			<Toaster>
+				{(t) => (
+					<ToastBar toast={t}>
+						{({ icon, message }) => (
+							<>
+								{icon}
+								{message}
+								{t.type !== "loading" && <button onClick={() => toast.dismiss(t.id)}>x</button>}
+							</>
+						)}
+					</ToastBar>
+				)}
+			</Toaster>
 		</div>
 	);
 }

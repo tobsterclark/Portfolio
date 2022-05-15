@@ -1,4 +1,5 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useState, useEffect } from "react";
+import toast from "react-hot-toast";
 
 const Contact = forwardRef(({ onBackClick }, ref) => {
 	const [name, setName] = useState("");
@@ -8,7 +9,45 @@ const Contact = forwardRef(({ onBackClick }, ref) => {
 	const [email, setEmail] = useState("");
 	const [enquiry, setEnquiry] = useState("");
 
-	const handleSubmit = () => {};
+	const [errorText, setErrorText] = useState("hidden");
+	const [buttonStyle, setButtonStyle] = useState(false);
+
+	async function handleSubmit() {
+		const toastId = toast.loading("Loading...");
+		if (name !== "" && email !== "" && enquiry !== "") {
+			const body = '{ "name": "' + name + '", "email": "' + email + '", "enquiry": "' + enquiry + '" }';
+			await fetch("https://us-central1-profile-d4a0d.cloudfunctions.net/email", {
+				method: "POST",
+				body: body,
+			})
+				.then((data) => {
+					console.log(data);
+					toast.success("Enquiry sent!", { id: toastId });
+				})
+				.catch((error) => {
+					console.log(error);
+					if (error === 500) {
+						toast.error("A server error occured, try again later!", { id: toastId });
+					} else if (error === 406) {
+						toast.error("Client error, please contact me at tobsterclark@gmail.com", { id: toastId });
+					} else {
+						toast.error("An unknown error occured, please contact me at tobsterclark@gmail.com. Error code: " + error);
+					}
+				});
+		} else {
+			toast.error("Must fill out all fields!", { id: toastId });
+		}
+	}
+
+	useEffect(() => {
+		if (nameError === "flex" || emailError === "flex" || enquiryError === "flex") {
+			setErrorText("flex");
+			setButtonStyle(true);
+		} else {
+			setErrorText("hidden");
+			setButtonStyle(false);
+		}
+	}, [nameError, enquiryError, emailError]);
 
 	const focusOut = (item) => {
 		if (item === "name") {
@@ -33,7 +72,7 @@ const Contact = forwardRef(({ onBackClick }, ref) => {
 	};
 
 	return (
-		<div ref={ref} className="flex items-center p-10">
+		<div ref={ref} className="flex flex-col md:flex-row items-center p-10">
 			<div className="w-1/2 flex flex-col text-center">
 				<span className="font-masthead py-5 text-4xl">Contact Me</span>
 				<span>Email: Tobsterclark@gmail.com</span>
@@ -66,14 +105,9 @@ const Contact = forwardRef(({ onBackClick }, ref) => {
 					<textarea className="border rounded-lg p-2 focus:bg-blue-300 w-full h-20" onBlur={() => focusOut("enquiry")} type="text" placeholder="What is your enquiry?" onChange={(evt) => setEnquiry(evt.target.value)} value={enquiry} />
 				</div>
 
-				<span className="text-red-500 hidden">Some fields have not been filled out</span>
+				<span className={"text-red-500 " + errorText}>Some fields have not been filled out</span>
 
-				<button
-					className="btn-primary w-1/5 py-4"
-					onSubmit={() => {
-						handleSubmit();
-					}}
-				>
+				<button disabled={buttonStyle} className="btn-primary w-1/5 py-4 " onClick={() => handleSubmit()}>
 					Submit
 				</button>
 			</div>
