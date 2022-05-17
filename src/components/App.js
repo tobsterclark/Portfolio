@@ -18,18 +18,18 @@ export default function App() {
 	const projectsRef = useRef();
 	const main = useRef();
 
-	const aboutViewport = useIntersection(aboutRef, "-40px");
-	const contactViewport = useIntersection(contactRef, "-40px");
-	const projectsViewport = useIntersection(projectsRef, "-40px");
-	const homeViewport = useIntersection(homeRef, "-40px");
+	const aboutViewport = useIntersection(aboutRef, "-40px", 0.6);
+	const contactViewport = useIntersection(contactRef, "-40px", 0.6);
+	const projectsViewport = useIntersection(projectsRef, "-40px", 0.2);
+	const homeViewport = useIntersection(homeRef, "-40px", 0.6);
 
 	useEffect(() => {
 		animations();
 
 		var sent = "";
-		if (aboutViewport && hash !== "#about" && !projectsViewport && !homeViewport) {
+		if (aboutViewport && hash !== "#about" && !homeViewport) {
 			nav("#about", { state: { sent: "auto" } });
-		} else if (contactViewport && hash !== "#contact" && !projectsViewport) {
+		} else if (contactViewport && hash !== "#contact") {
 			nav("#contact", { state: { sent: "auto" } });
 		} else if (projectsViewport && hash !== "#projects" && !aboutViewport && !contactViewport) {
 			nav("#projects", { state: { sent: "auto" } });
@@ -62,14 +62,18 @@ export default function App() {
 
 	return (
 		<div className="h-screen w-screen">
-			<div className="z-20">
+			<div className="z-50">
 				<Header />
 			</div>
-			<div id="main" ref={main} className="z-10 w-full h-full overflow-x-hidden">
+			<div id="main" ref={main} className="z-10 w-full h-full overflow-x-hidden relative items-center">
 				<Home ref={homeRef} />
-				<About ref={aboutRef} />
-				<Projects ref={projectsRef} />
-				<Contact ref={contactRef} />
+				<div className="flex flex-col w-full items-center">
+					<div className="mx-20 max-w-screen-xl flex flex-col space-y-20">
+						<About ref={aboutRef} />
+						<Projects ref={projectsRef} main={main} />
+						<Contact ref={contactRef} />
+					</div>
+				</div>
 			</div>
 			<Toaster>
 				{(t) => (
