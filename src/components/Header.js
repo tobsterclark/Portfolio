@@ -64,7 +64,7 @@ export default function Header() {
 
 	return (
 		<div>
-			<div className={"top-0 left-0 right-0 fixed w-full hidden md:flex z-20 justify-between py-4 transition duration-300 items-center " + navbar}>
+			<div className={"top-0 left-0 right-0 fixed w-full h-fit hidden md:flex z-20 justify-between py-4 transition duration-300 items-center " + navbar}>
 				{/* Logo */}
 				<div className="w-1/2 sm:w-1/3 md:w-1/4 text-center px-10 flex gap-x-5 items-center justify-start">
 					<img alt="profile" src={profile} className="w-4/5 md:w-1/3 sm:w-2/3 rounded-full" />
@@ -72,15 +72,18 @@ export default function Header() {
 						Toby Clark
 					</Link>
 				</div>
-				<div className="px-10 justify-evenly flex">
-					<Link to="#about" state={{ sent: "btn" }} className={"pb-2 px-10 border-b-2 " + aboutStyles}>
+				<div className="px-10 justify-evenly flex h-full items-center">
+					<Link to="#about" state={{ sent: "btn" }} className={"flex-none pb-4 pt-6 px-10 border-b-2 " + aboutStyles}>
 						About
 					</Link>
-					<Link to="#projects" state={{ sent: "btn" }} className={"pb-2 px-10 border-b-2 " + projectsStyles}>
+					<Link to="#projects" state={{ sent: "btn" }} className={"flex-none pb-4 pt-6 px-10 border-b-2 " + projectsStyles}>
 						Projects
 					</Link>
-					<Link to="#contact" state={{ sent: "btn" }} className={"pb-2 px-10 border-b-2 " + contactStyles}>
+					<Link to="#contact" state={{ sent: "btn" }} className={"flex-none pb-4 pt-6 px-10 border-b-2 " + contactStyles}>
 						Contact
+					</Link>
+					<Link to="/resume" className="flex-none btn-primary mx-10 ">
+						Resume
 					</Link>
 				</div>
 			</div>

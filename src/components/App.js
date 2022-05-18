@@ -70,7 +70,7 @@ export default function App() {
 				<div className="flex flex-col w-full items-center">
 					<div className="mx-20 max-w-screen-xl flex flex-col space-y-20">
 						<About ref={aboutRef} />
-						<Projects ref={projectsRef} main={main} />
+						<Projects ref={projectsRef} />
 						<Contact ref={contactRef} />
 					</div>
 				</div>
