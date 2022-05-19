@@ -48,9 +48,11 @@ export default function Header() {
 		if (mobileStyles === "hidden") {
 			setMobileStyles("flex");
 			setHamburgerClicked("animate-together");
+			main.classList.add("blur", "md:blur-none", "duration-1000");
 		} else {
 			setMobileStyles("hidden");
 			setHamburgerClicked("");
+			main.classList.remove("blur", "md:blur-none", "duration-1000");
 		}
 	};
 
@@ -63,8 +65,8 @@ export default function Header() {
 	};
 
 	return (
-		<div>
-			<div className={"top-0 left-0 right-0 fixed w-full h-fit hidden md:flex z-20 justify-between py-4 transition duration-300 items-center " + navbar}>
+		<div className="z-50">
+			<div className={"z-50 top-0 left-0 right-0 fixed w-full h-fit hidden md:flex justify-between py-4 transition duration-300 items-center " + navbar}>
 				{/* Logo */}
 				<div className="w-1/2 sm:w-1/3 md:w-1/4 text-center px-10 flex gap-x-5 items-center justify-start">
 					<img alt="profile" src={profile} className="w-4/5 md:w-1/3 sm:w-2/3 rounded-full" />
@@ -82,28 +84,28 @@ export default function Header() {
 					<Link to="#contact" state={{ sent: "btn" }} className={"flex-none pb-4 pt-6 px-10 border-b-2 " + contactStyles}>
 						Contact
 					</Link>
-					<Link to="/resume" className="flex-none btn-primary mx-10 ">
+					<Link to="/resume" className="flex-none btn-primary shadow-xl mx-10 ">
 						Resume
 					</Link>
 				</div>
 			</div>
 
-			<div className={"fixed -right-60 animate-sliderightin top-0 md:hidden flex flex-col text-center divide-y w-1/2 sm:w-1/3 h-screen bg-white " + mobileStyles}>
-				<Link to="#home" state={{ sent: "btn" }} className="py-10">
+			<div className={"fixed -right-60 animate-sliderightin top-0 md:hidden flex z-50 flex-col text-center divide-y w-1/2 sm:w-1/3 h-screen bg-white " + mobileStyles}>
+				<Link to="#home" state={{ sent: "btn" }} className="py-10" onClick={() => revealMobile()}>
 					Home
 				</Link>
-				<Link to="#about" state={{ sent: "btn" }} className="py-10">
+				<Link to="#about" state={{ sent: "btn" }} className="py-10" onClick={() => revealMobile()}>
 					About
 				</Link>
-				<Link to="#projects" state={{ sent: "btn" }} className="py-10">
+				<Link to="#projects" state={{ sent: "btn" }} className="py-10" onClick={() => revealMobile()}>
 					Projects
 				</Link>
-				<Link to="#contact" state={{ sent: "btn" }} className="py-10">
+				<Link to="#contact" state={{ sent: "btn" }} className="py-10" onClick={() => revealMobile()}>
 					Contact
 				</Link>
 			</div>
 
-			<button className="fixed md:hidden bottom-10 bg-blue-500 p-2 sm:p-4 gap-1 rounded-full right-10 flex flex-col items-center " onClick={() => revealMobile()}>
+			<button className="fixed md:hidden bottom-10 bg-blue-500 p-4 sm:p-4 gap-1 rounded-full z-50 right-10 flex flex-col items-center " onClick={() => revealMobile()}>
 				<div className="h-0.5 sm:flex hidden" />
 				<div className={"block bg-white w-4 h-0.5 sm:w-8 sm:h-1 rounded-2xl " + hamburgerClicked} />
 				<div className={"block bg-white w-4 h-0.5 sm:w-8 sm:h-1 rounded-2xl " + hamburgerClicked} />

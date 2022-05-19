@@ -37,21 +37,29 @@ const Projects = forwardRef(({ onBackClick }, ref) => {
 			});
 
 			output.push(
-				<div key={i} className="relative flex w-full gap-x-5 items-center">
-					<div className={"flex flex-col w-full gap-y-5 z-20 py-10 " + (left ? "" : "items-end")}>
+				<div key={i} className="relative flex w-full gap-x-5 items-center js-fadeIn">
+					<div className={"flex flex-col w-full gap-y-5 z-20 py-10 " + (left ? "js-slideLeft" : "items-end js-slideRight")}>
 						<div className={"w-1/3 flex flex-col " + (left ? "text-left" : "items-end text-right")}>
 							<span className="font-masthead text-4xl ">{i}</span>
-							<span className="">Date: {project.date}</span>
-							<a target="_blank" href={project.link} rel="noreferrer">
-								<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="black" strokeWidth={1}>
-									<path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-								</svg>
-							</a>
+							<div className={"flex md:flex-col gap-x-5 " + (left ? "text-left" : "items-end text-right flex-row-reverse")}>
+								<span className="py-1">Date: {project.date}</span>
+								<a target="_blank" href={project.link} rel="noreferrer">
+									<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 hover:stroke-blue-500" fill="none" viewBox="0 0 24 24" stroke="black" strokeWidth={1}>
+										<path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+									</svg>
+								</a>
+							</div>
 						</div>
-						<span className="md:w-2/3 xl:w-1/2 bg-white rounded-lg shadow-2xl px-10 py-5">{project.content}</span>
-						<div className="md:w-2/3 lg:w-1/3 flex gap-1 flex-wrap px-5"> {widgets}</div>
+						<div className="md:hidden rounded-lg bg-contain bg-blend-overlay bg-black bg-opacity-50" style={{ backgroundImage: `url(${project.img})` }}>
+							<img src={project.img} className="invisible" alt={"An example of " + i} />
+						</div>
+						<div className="w-full flex md:contents absolute md:relative top-0 bottom-0 my-auto items-center">
+							<span className="h-fit md:w-2/3 xl:w-1/2 text-white md:text-black md:bg-blue-300 rounded-lg md:shadow-2xl px-10 py-5">{project.content}</span>
+						</div>
+						{/* </div> */}
+						<div className={"md:w-2/3 lg:w-1/3 flex gap-1 flex-wrap " + (left ? "pr-1" : "justify-end pl-1")}> {widgets}</div>
 					</div>
-					<img src={project.img} className={"xl:w-2/3 md:w-5/6 rounded-lg absolute z-10 top-0 bottom-0 my-auto " + (left ? "right-0" : "left-0")} alt="The Apollo website" />
+					<img src={project.img} className={"xl:w-2/3 md:w-5/6 hidden md:flex rounded-lg absolute z-10 top-0 bottom-0 my-auto " + (left ? "right-0" : "left-0")} alt={"An example of " + i} />
 				</div>
 			);
 
@@ -63,7 +71,7 @@ const Projects = forwardRef(({ onBackClick }, ref) => {
 
 	return (
 		<div ref={ref} className="flex text-black relative">
-			<div className="flex w-full flex-col gap-y-48 items-center">{showProjects()}</div>
+			<div className="flex w-full flex-col md:gap-y-48 items-center">{showProjects()}</div>
 		</div>
 	);
 });

@@ -18,14 +18,16 @@ export default function App() {
 	const projectsRef = useRef();
 	const main = useRef();
 
-	const aboutViewport = useIntersection(aboutRef, "-40px", 0.6);
+	const aboutViewport = useIntersection(aboutRef, "-40px", 0.2);
 	const contactViewport = useIntersection(contactRef, "-40px", 0.6);
 	const projectsViewport = useIntersection(projectsRef, "-40px", 0.2);
 	const homeViewport = useIntersection(homeRef, "-40px", 0.6);
 
 	useEffect(() => {
 		animations();
+	});
 
+	useEffect(() => {
 		var sent = "";
 		if (aboutViewport && hash !== "#about" && !homeViewport) {
 			nav("#about", { state: { sent: "auto" } });
@@ -63,12 +65,12 @@ export default function App() {
 	return (
 		<div className="h-screen w-screen">
 			<div className="z-50">
-				<Header />
+				<Header main={main} />
 			</div>
 			<div id="main" ref={main} className="z-10 w-full h-full overflow-x-hidden relative items-center">
 				<Home ref={homeRef} />
-				<div className="flex flex-col w-full items-center">
-					<div className="mx-20 max-w-screen-xl flex flex-col space-y-20">
+				<div className="flex flex-col w-full items-center text-sm md:text-base">
+					<div className="mx-5 md:mx-20 max-w-screen-xl flex flex-col space-y-20">
 						<About ref={aboutRef} />
 						<Projects ref={projectsRef} />
 						<Contact ref={contactRef} />

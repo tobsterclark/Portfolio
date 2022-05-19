@@ -1,10 +1,18 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Typewriter from "typewriter-effect";
+import { useLocation } from "react-router-dom";
 import backgroundImage from "../../images/backgroundImage.jpg";
 
 const Home = forwardRef(({ onBackClick }, ref) => {
+	const { hash } = useLocation();
+	const [rerender, setRerender] = useState(false);
 	const typeWriterContent = ["REACT", "PYTHON", "SWIFT", "JAVASCRIPT", "FIREBASE", "PHOTOGRAPHY"];
+
+	//Trying to figure out why mobile doesnt show image after scrolling
+	useEffect(() => {
+		rerender ? setRerender(true) : setRerender(false);
+	}, [hash, rerender]);
 
 	return (
 		<div ref={ref} className="md:h-screen h-2/3 w-full text-white flex bg-white items-center justify-center overflow-hidden bg-cover bg-fixed" style={{ backgroundImage: `url(${backgroundImage})` }}>
