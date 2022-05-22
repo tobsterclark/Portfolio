@@ -15,8 +15,9 @@ const Home = forwardRef(({ onBackClick }, ref) => {
 	}, [hash, rerender]);
 
 	return (
-		<div ref={ref} className="md:h-screen h-2/3 w-full text-white flex bg-white items-center justify-center overflow-hidden bg-cover bg-fixed" style={{ backgroundImage: `url(${backgroundImage})` }}>
-			<div className="flex flex-col gap-y-10 items-center font-masthead w-5/6 sm:w-4/5 md:w-2/5 text-center bg-opacity-30">
+		<div ref={ref} className="md:h-screen h-2/3 w-full text-white flex items-center justify-center overflow-hidden">
+			<img src={backgroundImage} alt="background" className="w-full object-contain -z-10" />
+			<div className="absolute z-10 flex flex-col gap-y-10 items-center font-masthead w-5/6 sm:w-4/5 md:w-2/5 text-center bg-opacity-30">
 				<div className="py-5 sm:px-10 px-2 flex flex-col gap-y-3 w-full">
 					<div className="md:text-6xl sm:text-4xl h-24 text-center items-center justify-center hidden sm:flex w-full">
 						<Typewriter

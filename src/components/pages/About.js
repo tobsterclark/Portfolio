@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { forwardRef, useState, useEffect } from "react";
-import picture from "../../images/IMG_5163.jpg";
+import picture from "../../images/profile.jpg";
 
 const About = forwardRef(({ onBackClick }, ref) => {
 	const [currentEducation, setCurrentEducation] = useState("diploma");
@@ -58,8 +58,8 @@ const About = forwardRef(({ onBackClick }, ref) => {
 			</div>
 			<div className="items-center flex flex-col pb-10 js-fadeIn w-full">
 				<span className="text-4xl font-masthead py-5">Education</span>
-				<div className="w-full lg:w-2/3 flex md:flex-row flex-col gap-10 shadow-2xl rounded-lg p-10">
-					<div className="md:items-start justify-center flex md:flex-col gap-y-5 w-full md:w-1/3">
+				<div className="w-full lg:w-2/3 flex md:flex-row flex-col gap-10 shadow-2xl rounded-lg p-2 sm:p-10">
+					<div className="items-start overflow-hidden sm:overflow-hidden py-5 justify-center flex md:flex-col gap-y-5 w-full md:w-1/3">
 						<button
 							onClick={() => {
 								setCurrentEducation("school");

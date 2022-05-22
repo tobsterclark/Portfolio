@@ -79,7 +79,7 @@ const Contact = forwardRef(({ onBackClick }, ref) => {
 	};
 
 	return (
-		<div ref={ref} className="flex flex-col md:flex-row items-center gap-y-5 p-10">
+		<div ref={ref} className="flex w-full flex-col md:flex-row items-center gap-y-5 p-1 md:p-10">
 			<div className="w-full md:w-1/2 flex flex-col text-center">
 				<span className="font-masthead py-5 text-4xl">Contact Me</span>
 				<span>Email: Tobsterclark@gmail.com</span>

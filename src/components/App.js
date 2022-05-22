@@ -63,14 +63,14 @@ export default function App() {
 	}, [pathname, hash, key, aboutViewport, projectsViewport, contactViewport, homeViewport, nav, state]);
 
 	return (
-		<div className="h-screen w-screen">
+		<div className="h-screen w-screen ">
 			<div className="z-50">
 				<Header main={main} />
 			</div>
-			<div id="main" ref={main} className="z-10 w-full h-full overflow-x-hidden relative items-center">
-				<Home ref={homeRef} />
-				<div className="flex flex-col w-full items-center text-sm md:text-base">
-					<div className="mx-5 md:mx-20 max-w-screen-xl flex flex-col space-y-20">
+			<div id="main" ref={main} className="z-10 w-full h-full overflow-x-hidden relative items-center bg-white">
+				<Home ref={homeRef} className="w-full" />
+				<div className="w-screen bg-white z-10 text-sm md:text-base justify-center flex">
+					<div className="w-full md:mx-1 lg:mx-20 max-w-screen-xl items-center flex flex-col space-y-20">
 						<About ref={aboutRef} />
 						<Projects ref={projectsRef} />
 						<Contact ref={contactRef} />

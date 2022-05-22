@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import profile from "../images/profile.png";
+import profile from "../images/profile.jpg";
 
 export default function Header() {
 	const [navbar, setNavBar] = useState("bg-transparent");
@@ -107,9 +107,9 @@ export default function Header() {
 
 			<button className="fixed md:hidden bottom-10 bg-blue-500 p-4 sm:p-4 gap-1 rounded-full z-50 right-10 flex flex-col items-center " onClick={() => revealMobile()}>
 				<div className="h-0.5 sm:flex hidden" />
-				<div className={"block bg-white w-4 h-0.5 sm:w-8 sm:h-1 rounded-2xl " + hamburgerClicked} />
-				<div className={"block bg-white w-4 h-0.5 sm:w-8 sm:h-1 rounded-2xl " + hamburgerClicked} />
-				<div className={"block bg-white w-4 h-0.5 sm:w-8 sm:h-1 rounded-2xl " + hamburgerClicked} />
+				<div className={"block bg-white w-4 duration-1000 h-0.5 sm:w-8 sm:h-1 rounded-2xl " + (hamburgerClicked ? "translate-y-1.5 sm:translate-y-2 -rotate-45" : "")} />
+				<div className={"block bg-white w-4 duration-1000 h-0.5 sm:w-8 sm:h-1 rounded-2xl " + (hamburgerClicked ? "opacity-0" : "")} />
+				<div className={"block bg-white w-4 duration-1000 h-0.5 sm:w-8 sm:h-1 rounded-2xl " + (hamburgerClicked ? "-translate-y-1.5 sm:-translate-y-2 rotate-45" : "")} />
 				<div className="h-0.5 sm:flex hidden" />
 			</button>
 		</div>
