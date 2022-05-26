@@ -81,10 +81,10 @@ const Contact = forwardRef(({ onBackClick }, ref) => {
 	return (
 		<div ref={ref} className="flex w-full flex-col md:flex-row items-center gap-y-5 p-1 md:p-10">
 			<div className="w-full md:w-1/2 flex flex-col text-center">
-				<span className="font-masthead py-5 text-4xl">Contact Me</span>
+				<span className="header1">Contact Me</span>
 				<span>Email: Tobsterclark@gmail.com</span>
 			</div>
-			<div className="w-full md:w-1/2 flex flex-col rounded-lg shadow-2xl gap-y-10 items-center py-5">
+			<div className="w-full md:w-1/2 flex flex-col rounded-lg shadow-2xl dark:bg-slate-700 gap-y-10 items-center py-5">
 				<div className="flex flex-col sm:flex-row gap-y-10 items-center justify-center w-full gap-x-10 md:gap-x-20">
 					<div className="flex flex-col gap-y-2 w-2/3 sm:w-1/3 ">
 						<span className="flex items-center gap-x-3">

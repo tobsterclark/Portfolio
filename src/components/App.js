@@ -17,6 +17,7 @@ export default function App() {
 	const contactRef = useRef();
 	const projectsRef = useRef();
 	const main = useRef();
+	const mainWindow = useRef();
 
 	const aboutViewport = useIntersection(aboutRef, "-40px", 0.2);
 	const contactViewport = useIntersection(contactRef, "-40px", 0.6);
@@ -25,7 +26,41 @@ export default function App() {
 
 	useEffect(() => {
 		animations();
-	});
+
+		//Checking initial light or dark mode
+		if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+			mainWindow.current.classList.add("dark");
+		} else {
+			mainWindow.current.classList.add("light");
+		}
+
+		const mainIncludes = (matches) => {
+			for (let i in mainWindow.current.classList) {
+				if (i === (matches ? "dark" : "light")) {
+					return true;
+				}
+			}
+			return false;
+		};
+
+		//Adding a listener for if system lightmode changes
+		const lightMode = (matches) => {
+			if (!mainIncludes(matches)) {
+				mainWindow.current.classList.add(matches ? "dark" : "light");
+				mainWindow.current.classList.remove(matches ? "light" : "dark");
+			}
+		};
+
+		window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
+			lightMode(event.matches);
+		});
+
+		return function cleanup() {
+			window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
+				lightMode(event.matches);
+			});
+		};
+	}, []);
 
 	useEffect(() => {
 		var sent = "";
@@ -44,7 +79,6 @@ export default function App() {
 		}
 
 		if (sent !== "auto") {
-			console.log(main.current.scrollTop);
 			if (hash === "" || hash === "#home") {
 				main.current.scrollTo({ top: 0, behavior: "smooth", block: "start" });
 			} else if (hash === "#about") {
@@ -63,17 +97,19 @@ export default function App() {
 	}, [pathname, hash, key, aboutViewport, projectsViewport, contactViewport, homeViewport, nav, state]);
 
 	return (
-		<div className="h-screen w-screen ">
+		<div id="mainWindow" ref={mainWindow} className="h-screen w-screens">
 			<div className="z-50">
 				<Header main={main} />
 			</div>
 			<div id="main" ref={main} className="z-10 w-full h-full overflow-x-hidden relative items-center bg-white">
-				<Home ref={homeRef} className="w-full" />
-				<div className="w-screen bg-white z-10 text-sm md:text-base justify-center flex">
-					<div className="w-full md:mx-1 lg:mx-20 max-w-screen-xl items-center flex flex-col space-y-20">
-						<About ref={aboutRef} />
-						<Projects ref={projectsRef} />
-						<Contact ref={contactRef} />
+				<div className="dark:text-gray-300 text-black">
+					<Home ref={homeRef} className="w-full" />
+					<div className="w-screen bg-white dark:bg-slate-900 z-10 text-sm md:text-base justify-center flex">
+						<div className="w-full md:mx-1 lg:mx-20 max-w-screen-xl items-center flex flex-col space-y-20">
+							<About ref={aboutRef} />
+							<Projects ref={projectsRef} />
+							<Contact ref={contactRef} />
+						</div>
 					</div>
 				</div>
 			</div>

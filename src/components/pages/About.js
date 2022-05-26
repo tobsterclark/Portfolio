@@ -3,7 +3,7 @@ import React, { forwardRef, useState, useEffect } from "react";
 import picture from "../../images/profile.jpg";
 
 const About = forwardRef(({ onBackClick }, ref) => {
-	const [currentEducation, setCurrentEducation] = useState("diploma");
+	const [currentEducation, setCurrentEducation] = useState("school");
 	const [currentHighlight, setCurrentHighlight] = useState({ school: false, cert: false, diploma: false, bachelor: false });
 
 	useEffect(() => {
@@ -36,11 +36,47 @@ const About = forwardRef(({ onBackClick }, ref) => {
 				</div>
 			);
 		} else if (currentEducation === "cert") {
-			return <div>TAFE, completion:xx-xx-xxxx</div>;
+			return (
+				<div className="w-full flex flex-col gap-y-5 justify-end">
+					<div className="flex flex-col">
+						<span className="text-2xl font-masthead">
+							Current: Certificate IV in Information Technology <span className="font-sans">@TAFE Digital</span>
+						</span>
+						<span className="text-xl">2022</span>
+					</div>
+					<ul className="px-5 list-disc w-full">
+						<li className="px-2">In progress, 1/3 completed in 3 weeks</li>
+					</ul>
+				</div>
+			);
 		} else if (currentEducation === "diploma") {
-			return <div>In progress, TAFE Hornsby</div>;
+			return (
+				<div className="w-full flex flex-col gap-y-5 justify-end">
+					<div className="flex flex-col">
+						<span className="text-2xl font-masthead">
+							Future: Diploma in Software Development <span className="font-sans">@Tafe Hornsby</span>
+						</span>
+						<span className="text-xl">2022</span>
+					</div>
+					<ul className="px-5 list-disc w-full">
+						<li className="px-2">Planned for June to November in 2022</li>
+					</ul>
+				</div>
+			);
 		} else if (currentEducation === "bachelor") {
-			return <div>UTS or UNSW</div>;
+			return (
+				<div className="w-full flex flex-col gap-y-5 justify-end">
+					<div className="flex flex-col">
+						<span className="text-2xl font-masthead">
+							Future: Bachelor of Computer Engineering <span className="font-sans">@UNSW or UTS</span>
+						</span>
+						<span className="text-xl">2023</span>
+					</div>
+					<ul className="px-5 list-disc w-full">
+						<li className="px-2">Planned for either UNSW or UTS, starting in 2023</li>
+					</ul>
+				</div>
+			);
 		}
 	};
 
@@ -48,7 +84,7 @@ const About = forwardRef(({ onBackClick }, ref) => {
 		<div ref={ref} className="w-full flex flex-col justify-between items-center">
 			<div className="flex justify-between w-full items-center p-10">
 				<div className="flex flex-col w-full md:w-1/2 text-center js-slideLeft">
-					<span className="font-masthead py-5 text-4xl">About Me</span>
+					<span className="header1">About Me</span>
 					<span className="">
 						I am a person
 						<span></span>
@@ -57,14 +93,14 @@ const About = forwardRef(({ onBackClick }, ref) => {
 				<img className="w-1/3 hidden items-center md:flex shadow-2xl rounded-full js-slideLeft" alt="This is a photograph" src={picture} />
 			</div>
 			<div className="items-center flex flex-col pb-10 js-fadeIn w-full">
-				<span className="text-4xl font-masthead py-5">Education</span>
-				<div className="w-full lg:w-2/3 flex md:flex-row flex-col gap-10 shadow-2xl rounded-lg p-2 sm:p-10">
+				<span className="header1">Education</span>
+				<div className="w-full lg:w-2/3 flex md:flex-row flex-col gap-10 shadow-2xl dark:bg-slate-700 rounded-lg p-2 sm:p-10">
 					<div className="items-start overflow-hidden sm:overflow-hidden py-5 justify-center flex md:flex-col gap-y-5 w-full md:w-1/3">
 						<button
 							onClick={() => {
 								setCurrentEducation("school");
 							}}
-							className={"px-2 py-2 text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 w-full " + (currentHighlight.school ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300")}
+							className={"px-2 py-2 text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 w-full " + (currentHighlight.school ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
 						>
 							Year 11 Highschool
 						</button>
@@ -72,23 +108,23 @@ const About = forwardRef(({ onBackClick }, ref) => {
 							onClick={() => {
 								setCurrentEducation("cert");
 							}}
-							className={"px-2 py-2 text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 w-full " + (currentHighlight.cert ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300")}
+							className={"px-2 py-2 text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 w-full " + (currentHighlight.cert ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
 						>
-							Cert IV Information Technology
+							Current - Cert IV Information Technology
 						</button>
 						<button
 							onClick={() => {
 								setCurrentEducation("diploma");
 							}}
-							className={"px-2 py-2 text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 w-full " + (currentHighlight.diploma ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300")}
+							className={"px-2 py-2 text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 w-full " + (currentHighlight.diploma ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
 						>
-							Current - Diploma Information Technology
+							Future - Diploma Information Technology
 						</button>
 						<button
 							onClick={() => {
 								setCurrentEducation("bachelor");
 							}}
-							className={"px-2 py-2 text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 w-full " + (currentHighlight.bachelor ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300")}
+							className={"px-2 py-2 text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 w-full " + (currentHighlight.bachelor ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
 						>
 							Future - Bachelor Computer Science
 						</button>
