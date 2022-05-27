@@ -97,7 +97,7 @@ export default function App() {
 	}, [pathname, hash, key, aboutViewport, projectsViewport, contactViewport, homeViewport, nav, state]);
 
 	return (
-		<div id="mainWindow" ref={mainWindow} className="h-screen w-screens">
+		<div id="mainWindow" ref={mainWindow} className="h-screen w-screens overflow-y-hidden">
 			<div className="z-50">
 				<Header main={main} />
 			</div>
@@ -105,7 +105,7 @@ export default function App() {
 				<div className="dark:text-gray-300 text-black">
 					<Home ref={homeRef} className="w-full" />
 					<div className="w-screen bg-white dark:bg-slate-900 z-10 text-sm md:text-base justify-center flex">
-						<div className="w-full md:mx-1 lg:mx-20 max-w-screen-xl items-center flex flex-col space-y-20">
+						<div className="w-full lg:mx-20 max-w-screen-xl items-center flex flex-col gap-y-20 md:gap-y-60">
 							<About ref={aboutRef} />
 							<Projects ref={projectsRef} />
 							<Contact ref={contactRef} />

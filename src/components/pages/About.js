@@ -86,8 +86,7 @@ const About = forwardRef(({ onBackClick }, ref) => {
 				<div className="flex flex-col w-full md:w-1/2 text-center js-slideLeft">
 					<span className="header1">About Me</span>
 					<span className="">
-						I am a person
-						<span></span>
+						I am a fullstack developer with a focus on React.JS, python, and swift. I love photography, production, and everything to do with technology. When I'm not at my desk I play basketball, go mountain biking, and love hiking.
 					</span>
 				</div>
 				<img className="w-1/3 hidden items-center md:flex shadow-2xl rounded-full js-slideLeft" alt="This is a photograph" src={picture} />
@@ -129,7 +128,7 @@ const About = forwardRef(({ onBackClick }, ref) => {
 							Future - Bachelor Computer Science
 						</button>
 					</div>
-					<div className="w-2/3">{currentText()}</div>
+					<div className="md:w-2/3 px-5">{currentText()}</div>
 				</div>
 			</div>
 		</div>

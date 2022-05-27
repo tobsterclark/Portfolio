@@ -71,12 +71,21 @@ export default function Header() {
 			<div className={"z-50 top-0 left-0 right-0 fixed opacity-95 w-full h-fit hidden md:flex justify-between py-4 transition duration-300 items-center " + navbar}>
 				{/* Logo */}
 				<div className="w-1/2 sm:w-1/3 md:w-1/4 text-center px-10 flex gap-x-5 items-center justify-start">
-					<img alt="profile" src={profile} className="opacity-100 w-4/5 md:w-1/3 sm:w-2/3 rounded-full" />
+					<img alt="profile" src={profile} className="opacity-100 w-4/5 lg:w-1/3 md:w-3/5 sm:w-2/3 rounded-full" />
 					<Link to="#home" state={{ sent: "btn" }} className="opacity-100 ">
 						Toby Clark
 					</Link>
 				</div>
 				<div className="px-10 justify-evenly flex h-full items-center">
+					<Link to="#about" state={{ sent: "btn" }} className={"opacity-100 flex-none pb-4 pt-6 px-10 border-b-2 " + aboutStyles}>
+						About
+					</Link>
+					<Link to="#projects" state={{ sent: "btn" }} className={"opacity-100 flex-none pb-4 pt-6 px-10 border-b-2 " + projectsStyles}>
+						Projects
+					</Link>
+					<Link to="#contact" state={{ sent: "btn" }} className={"opacity-100 flex-none pb-4 pt-6 px-10 border-b-2 " + contactStyles}>
+						Contact
+					</Link>
 					<button
 						className="px-10"
 						onClick={() => {
@@ -88,15 +97,6 @@ export default function Header() {
 							<path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
 						</svg>
 					</button>
-					<Link to="#about" state={{ sent: "btn" }} className={"opacity-100 flex-none pb-4 pt-6 px-10 border-b-2 " + aboutStyles}>
-						About
-					</Link>
-					<Link to="#projects" state={{ sent: "btn" }} className={"opacity-100 flex-none pb-4 pt-6 px-10 border-b-2 " + projectsStyles}>
-						Projects
-					</Link>
-					<Link to="#contact" state={{ sent: "btn" }} className={"opacity-100 flex-none pb-4 pt-6 px-10 border-b-2 " + contactStyles}>
-						Contact
-					</Link>
 					<Link to="/resume" className="opacity-100 flex-none btn-primary shadow-xl mx-10 ">
 						Resume
 					</Link>

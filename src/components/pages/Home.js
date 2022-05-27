@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import Typewriter from "typewriter-effect";
 // import Typewriter from "../typewriter";
 import { useLocation } from "react-router-dom";
-import backgroundImage from "../../images/backgroundImage.jpg";
+import backgroundImage1 from "../../images/backgroundImageLight.jpg";
+import backgroundImage2 from "../../images/backgroundImageDark.jpg";
 
 const Home = forwardRef(({ onBackClick }, ref) => {
 	const { hash } = useLocation();
@@ -16,8 +17,9 @@ const Home = forwardRef(({ onBackClick }, ref) => {
 	}, [hash, rerender]);
 
 	return (
-		<div ref={ref} className="md:h-screen h-2/3 w-full flex items-center justify-center overflow-hidden">
-			<img src={backgroundImage} alt="background" className="w-full object-contain -z-10" />
+		<div ref={ref} className="md:h-screen h-2/3 w-full relative flex items-center justify-center overflow-hidden">
+			<img src={backgroundImage1} alt="background" className="dark:hidden h-full w-full object-cover -z-10" />
+			<img src={backgroundImage2} alt="background" className="hidden dark:flex h-full w-full object-cover -z-10" />
 			<div className="absolute z-10 flex flex-col gap-y-10 items-center font-masthead w-5/6 sm:w-4/5 md:w-2/5 text-center bg-opacity-30">
 				<div className="py-5 sm:px-10 px-2 flex flex-col gap-y-3 w-full">
 					<div className="md:text-6xl text-white sm:text-4xl h-24 text-center items-center justify-center hidden sm:flex w-full">

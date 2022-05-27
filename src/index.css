@@ -7,9 +7,9 @@
 		@apply py-2 px-4 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 focus:animate-pingOnce;
 	}
 	.widget {
-		@apply rounded-full px-4 py-2 bg-blue-300 text-xs;
+		@apply rounded-full px-4 py-2 text-xs;
 	}
 	.header1 {
-		@apply text-4xl font-masthead py-5 dark:text-white text-black;
+		@apply text-4xl font-masthead py-1 sm:py-5 dark:text-white text-black;
 	}
 }
