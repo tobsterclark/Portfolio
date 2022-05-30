@@ -48,7 +48,7 @@ const Projects = forwardRef(({ onBackClick }, ref) => {
 				<div key={i} className="relative flex w-full items-center js-fadeIn">
 					<div className={"flex flex-col w-full gap-y-1 sm:gap-y-5 z-20 py-10 " + (left ? "js-slideLeft" : "items-end js-slideRight")}>
 						<div className={"w-1/3 flex flex-col " + (left ? "text-left" : "items-end text-right")}>
-							<span className="header1">{i}</span>
+							<h1 className="header1">{i}</h1>
 							<div className={"flex md:flex-col gap-x-5 items-center " + (left ? "text-left md:items-start" : "md:items-end text-right flex-row-reverse")}>
 								<span className="py-1">Date: {project.date}</span>
 								<a target="_blank" href={project.link} rel="noreferrer" alt={i} className={project.link ? "" : "hidden"}>

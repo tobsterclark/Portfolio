@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Typewriter from "typewriter-effect";
-// import Typewriter from "../typewriter";
+// import Typewriter from "typewriter-effect";
+import Typewriter from "../typewriter";
 import { useLocation } from "react-router-dom";
 import backgroundImage1 from "../../images/backgroundImageLight.jpg";
 import backgroundImage2 from "../../images/backgroundImageDark.jpg";

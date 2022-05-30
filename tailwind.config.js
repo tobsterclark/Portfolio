@@ -14,7 +14,7 @@ module.exports = {
 			},
 			animation: {
 				pingOnce: "ping 0.2s cubic-bezier(0, 0, 0.2, 0.5)",
-				blink: "blink 1s ease-in-out infinite",
+				blink: "blink 0.8s linear infinite",
 				sliderightin: "sliderightin 0.5s forwards",
 				together: "together 0.5s forwards",
 				fadeIn: "fadeIn 2s forwards",
@@ -24,6 +24,7 @@ module.exports = {
 				sliderightin: { "100%": { right: 0 } },
 				blink: {
 					"50%": { opacity: 0 },
+					to: { opacity: 100 },
 				},
 				together: { "100%": { bottom: 1 } },
 			},

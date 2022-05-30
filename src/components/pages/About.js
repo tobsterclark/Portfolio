@@ -84,15 +84,15 @@ const About = forwardRef(({ onBackClick }, ref) => {
 		<div ref={ref} className="w-full flex flex-col justify-between items-center">
 			<div className="flex justify-between w-full items-center p-10">
 				<div className="flex flex-col w-full md:w-1/2 text-center js-slideLeft">
-					<span className="header1">About Me</span>
+					<h1 className="header1">About Me</h1>
 					<span className="">
-						I am a fullstack developer with a focus on React.JS, python, and swift. I love photography, production, and everything to do with technology. When I'm not at my desk I play basketball, go mountain biking, and love hiking.
+						I am a fullstack software developer with a focus on React.JS, python, and swift. I love photography, production, and everything to do with technology. When I'm not at my desk I play basketball, go mountain biking, and love hiking.
 					</span>
 				</div>
 				<img className="w-1/3 hidden items-center md:flex shadow-2xl rounded-full js-slideLeft" alt="This is a photograph" src={picture} />
 			</div>
 			<div className="items-center flex flex-col pb-10 js-fadeIn w-full">
-				<span className="header1">Education</span>
+				<h1 className="header1">Education</h1>
 				<div className="w-full lg:w-2/3 flex md:flex-row flex-col gap-10 shadow-2xl dark:bg-slate-700 rounded-lg p-2 sm:p-10">
 					<div className="items-start overflow-hidden sm:overflow-hidden py-5 justify-center flex md:flex-col gap-y-5 w-full md:w-1/3">
 						<button

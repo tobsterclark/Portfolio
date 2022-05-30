@@ -81,8 +81,8 @@ const Contact = forwardRef(({ onBackClick }, ref) => {
 	return (
 		<div ref={ref} className="flex w-full flex-col md:flex-row items-center gap-y-5 p-1 md:p-10">
 			<div className="w-full md:w-1/2 flex justify-center flex-col text-center md:text-left md:border-l-2 border-blue-500 px-5">
-				<span className="header1">Contact Me</span>
-				<span className="pb-5">Email: Tobsterclark@gmail.com</span>
+				<h1 className="header1">Contact Me</h1>
+				<span className="pb-5">Email: me@tobyclark.dev</span>
 			</div>
 			<div className="w-full md:w-1/2 flex flex-col rounded-lg shadow-2xl dark:bg-slate-700 gap-y-10 items-center py-5">
 				<div className="flex flex-col sm:flex-row gap-y-10 items-center justify-center w-full gap-x-10 md:gap-x-20">
