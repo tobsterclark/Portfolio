@@ -17,7 +17,6 @@ export default function App() {
 	const contactRef = useRef();
 	const projectsRef = useRef();
 	const main = useRef();
-	const mainWindow = useRef();
 
 	const aboutViewport = useIntersection(aboutRef, "-40px", 0.2);
 	const contactViewport = useIntersection(contactRef, "-40px", 0.6);
@@ -29,13 +28,13 @@ export default function App() {
 
 		//Checking initial light or dark mode
 		if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-			mainWindow.current.classList.add("dark");
+			main.current.classList.add("dark");
 		} else {
-			mainWindow.current.classList.add("light");
+			main.current.classList.add("light");
 		}
 
 		const mainIncludes = (matches) => {
-			for (let i in mainWindow.current.classList) {
+			for (let i in main.current.classList) {
 				if (i === (matches ? "dark" : "light")) {
 					return true;
 				}
@@ -46,8 +45,8 @@ export default function App() {
 		//Adding a listener for if system lightmode changes
 		const lightMode = (matches) => {
 			if (!mainIncludes(matches)) {
-				mainWindow.current.classList.add(matches ? "dark" : "light");
-				mainWindow.current.classList.remove(matches ? "light" : "dark");
+				main.current.classList.add(matches ? "dark" : "light");
+				main.current.classList.remove(matches ? "light" : "dark");
 			}
 		};
 
@@ -80,16 +79,16 @@ export default function App() {
 
 		if (sent !== "auto") {
 			if (hash === "" || hash === "#home") {
-				main.current.scrollTo({ top: 0, behavior: "smooth", block: "start" });
+				window.scrollTo({ top: 0, behavior: "smooth", block: "start" });
 			} else if (hash === "#about") {
-				const y = aboutRef.current.getBoundingClientRect().top + main.current.scrollTop - 105;
-				main.current.scrollTo({ top: y, behavior: "smooth", block: "start" });
+				const y = aboutRef.current.getBoundingClientRect().top + window.pageYOffset - 105;
+				window.scrollTo({ top: y, behavior: "smooth", block: "start" });
 			} else if (hash === "#contact") {
-				const y = contactRef.current.getBoundingClientRect().top + main.current.scrollTop - 105;
-				main.current.scrollTo({ top: y, behavior: "smooth", block: "start" });
+				const y = contactRef.current.getBoundingClientRect().top + window.pageYOffset - 105;
+				window.scrollTo({ top: y, behavior: "smooth", block: "start" });
 			} else if (hash === "#projects") {
-				const y = projectsRef.current.getBoundingClientRect().top + main.current.scrollTop - 105;
-				main.current.scrollTo({ top: y, behavior: "smooth", block: "start" });
+				const y = projectsRef.current.getBoundingClientRect().top + window.pageYOffset - 105;
+				window.scrollTo({ top: y, behavior: "smooth", block: "start" });
 			}
 
 			nav(hash, { state: { sent: "auto" } });
@@ -97,11 +96,11 @@ export default function App() {
 	}, [pathname, hash, key, aboutViewport, projectsViewport, contactViewport, homeViewport, nav, state]);
 
 	return (
-		<div id="mainWindow" ref={mainWindow} className="h-screen w-screens overflow-hidden no-scrollbar">
+		<div id="main" ref={main} className="h-full overflow-hidden no-scrollbar">
 			<div className="z-50">
 				<Header main={main} />
 			</div>
-			<div id="main" ref={main} className="z-10 w-full h-full overflow-y-scroll overflow-x-hidden relative items-center bg-white">
+			<div className="z-10 w-full h-full overflow-y-hidden overflow-x-hidden relative items-center bg-white">
 				<div className="dark:text-gray-300 text-black">
 					<Home ref={homeRef} className="w-full" />
 					<div className="w-screen bg-white dark:bg-slate-900 z-10 text-sm md:text-base justify-center flex">

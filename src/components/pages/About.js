@@ -3,8 +3,8 @@ import React, { forwardRef, useState, useEffect } from "react";
 import picture from "../../images/profile.jpg";
 
 const About = forwardRef(({ onBackClick }, ref) => {
-	const [currentEducation, setCurrentEducation] = useState("school");
-	const [currentHighlight, setCurrentHighlight] = useState({ school: false, cert: false, diploma: false, bachelor: false });
+	const [currentEducation, setCurrentEducation] = useState("hackerrank");
+	const [currentHighlight, setCurrentHighlight] = useState({ school: false, cert: false, diploma: false, bachelor: false, hackerrank: false });
 
 	useEffect(() => {
 		var output = {};
@@ -21,7 +21,7 @@ const About = forwardRef(({ onBackClick }, ref) => {
 				<div className="w-full flex flex-col gap-y-5 justify-end">
 					<div className="flex flex-col">
 						<span className="text-2xl font-masthead">
-							School <span className="font-sans">@Knox, NBCS</span>
+							School <span className="font-sans">@KNOX, @NBCS</span>
 						</span>
 						<span className="text-xl">2013-2022</span>
 					</div>
@@ -77,6 +77,37 @@ const About = forwardRef(({ onBackClick }, ref) => {
 					</ul>
 				</div>
 			);
+		} else if (currentEducation === "hackerrank") {
+			return (
+				<div className="w-full flex flex-col gap-y-5 justify-end">
+					<div className="flex flex-col">
+						<span className="text-2xl font-masthead">Hacker Rank</span>
+						<span className="text-xl">2022</span>
+					</div>
+					<ul className="px-5 list-disc w-full">
+						<li className="px-2">
+							<a target="_blank" rel="noreferrer" className="text-blue-500 underline" href="https://www.hackerrank.com/certificates/ec71049fd3a1">
+								Certificate for Javascript (intermediate)
+							</a>
+						</li>
+						<li className="px-2">
+							<a target="_blank" rel="noreferrer" className="text-blue-500 underline" href="https://www.hackerrank.com/certificates/eca3b2fc92d6">
+								Certificate for Javascript (Basic)
+							</a>
+						</li>
+						<li className="px-2">
+							<a target="_blank" rel="noreferrer" className="text-blue-500 underline" href="https://www.hackerrank.com/certificates/0c5764276ba3">
+								Certificate for React
+							</a>
+						</li>
+						<li className="px-2">
+							<a target="_blank" rel="noreferrer" className="text-blue-500 underline" href="https://www.hackerrank.com/certificates/d30766711188">
+								Certificate for Python
+							</a>
+						</li>
+					</ul>
+				</div>
+			);
 		}
 	};
 
@@ -102,6 +133,14 @@ const About = forwardRef(({ onBackClick }, ref) => {
 							className={"px-2 py-2 text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 w-full " + (currentHighlight.school ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
 						>
 							Year 11 Highschool
+						</button>
+						<button
+							onClick={() => {
+								setCurrentEducation("hackerrank");
+							}}
+							className={"px-2 py-2 text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 w-full " + (currentHighlight.hackerrank ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
+						>
+							Hacker Rank
 						</button>
 						<button
 							onClick={() => {

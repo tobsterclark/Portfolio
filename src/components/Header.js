@@ -11,7 +11,6 @@ export default function Header() {
 	const [mobileStyles, setMobileStyles] = useState("hidden");
 	const [hamburgerClicked, setHamburgerClicked] = useState("");
 	const main = document.getElementById("main");
-	const mainWindow = document.getElementById("mainWindow");
 
 	useEffect(() => {
 		if (hash === "#about") {
@@ -58,7 +57,7 @@ export default function Header() {
 	};
 
 	const changeHeader = () => {
-		if (main.scrollTop >= 66) {
+		if (window.pageYOffset >= 66) {
 			setNavBar("bg-white dark:bg-slate-700 dark:text-gray-300 text-black shadow-2xl ");
 		} else {
 			setNavBar("bg-transparent dark:text-gray-300 text-white ");
@@ -89,8 +88,8 @@ export default function Header() {
 					<button
 						className="px-10"
 						onClick={() => {
-							const styles = [...mainWindow.classList];
-							styles.indexOf("dark") !== -1 ? mainWindow.classList.remove("dark") : mainWindow.classList.add("dark");
+							const styles = [...main.classList];
+							styles.indexOf("dark") !== -1 ? main.classList.remove("dark") : main.classList.add("dark");
 						}}
 					>
 						<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
