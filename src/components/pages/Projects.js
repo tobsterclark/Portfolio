@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 import SCNR from "../../images/SCNR.jpg";
 import Apollo from "../../images/Apollo.jpg";
+import wordle from "../../images/wordle.jpg";
 import Taskable from "../../images/Taskable.jpg";
 // Need to make python code for Apollo update once a month - use Functions
 
@@ -19,6 +20,13 @@ const Projects = forwardRef(({ onBackClick }, ref) => {
 			widgets: ["Webflow", "Firebase Functions"],
 			link: "sunshine-coast-neuro-rehab.web.app",
 			img: SCNR,
+		},
+		Wordle: {
+			date: "6/22",
+			content: "A web application for wordle clone designed in React with Typescript.",
+			widgets: ["React.JS", "Firebase Functions", "TailwindCSS"],
+			link: "wordle.tobyclark.dev",
+			img: wordle,
 		},
 		Taskable: {
 			date: "10/19",
