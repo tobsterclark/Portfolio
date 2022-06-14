@@ -11,7 +11,7 @@ const Projects = forwardRef(({ onBackClick }, ref) => {
 			date: "4/22",
 			content: "A web application for a made-up small boutique cinema. Including a stock management system and booking system, this project worked to dynamically store and retrieve data from a Real-time Firebase Database.",
 			widgets: ["React.JS", "Firebase Auth", "Firebase RT DB", "TailwindCSS", "React-DOM", "React-Hot-Toast", "tsparticles"],
-			link: "https://apollo-9dd16.web.app/",
+			link: "https://apollo.tobyclark.dev",
 			img: Apollo,
 		},
 		SCNR: {
@@ -25,7 +25,7 @@ const Projects = forwardRef(({ onBackClick }, ref) => {
 			date: "6/22",
 			content: "A web application for wordle clone designed in React with Typescript.",
 			widgets: ["React.JS", "Firebase Functions", "TailwindCSS"],
-			link: "wordle.tobyclark.dev",
+			link: "https://wordle.tobyclark.dev",
 			img: wordle,
 		},
 		Taskable: {
