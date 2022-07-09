@@ -26,6 +26,7 @@ const About = forwardRef(({ onBackClick }, ref) => {
 						<span className="text-xl">2013-2022</span>
 					</div>
 					<ul className="px-5 list-disc w-full">
+						<li className="px-2">ADF Future Innovators Award - AAC & Knox, 2022</li>
 						<li className="px-2">Senior Sergeant in Cadets - Knox, 2022</li>
 						<li className="px-2">Completed Year 11 - Knox, 2021</li>
 						<li className="px-2">Leader of Production & Media Team - NBCS, 2019</li>

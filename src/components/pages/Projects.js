@@ -3,6 +3,7 @@ import SCNR from "../../images/SCNR.jpg";
 import Apollo from "../../images/Apollo.jpg";
 import wordle from "../../images/wordle.jpg";
 import Taskable from "../../images/Taskable.jpg";
+import pomodoro from "../../images/pomodoro.jpg";
 // Need to make python code for Apollo update once a month - use Functions
 
 const Projects = forwardRef(({ onBackClick }, ref) => {
@@ -18,15 +19,24 @@ const Projects = forwardRef(({ onBackClick }, ref) => {
 			date: "6/22",
 			content: "A web application for a small business on the sunshine coast. This website was designed in webflow and hosted on Firebase, it utilised Firebase Functions for the backend code.",
 			widgets: ["Webflow", "Firebase Functions"],
-			link: "sunshine-coast-neuro-rehab.web.app",
+			link: "https://sunshine-coast-neuro-rehab.web.app",
 			img: SCNR,
 		},
 		Wordle: {
 			date: "6/22",
 			content: "A web application for wordle clone designed in React with Typescript.",
-			widgets: ["React.JS", "Firebase Functions", "TailwindCSS"],
+			widgets: ["React.JS", "Typescript", "Firebase Functions", "TailwindCSS"],
 			link: "https://wordle.tobyclark.dev",
 			img: wordle,
+			github: "https://github.com/tobsterclark/wordle-clone-dev",
+		},
+		Pomodoro: {
+			date: "10/21",
+			content: "A pomodoro based timer web application designed in React with Typescript.",
+			widgets: ["React.JS", "Typescript", "Github Pages", "TailwindCSS"],
+			link: "https://tobsterclark.github.io/pomodoro",
+			img: pomodoro,
+			github: "https://github.com/tobsterclark/pomodoro",
 		},
 		Taskable: {
 			date: "10/19",
@@ -59,11 +69,18 @@ const Projects = forwardRef(({ onBackClick }, ref) => {
 							<h1 className="header1">{i}</h1>
 							<div className={"flex md:flex-col gap-x-5 items-center " + (left ? "text-left md:items-start" : "md:items-end text-right flex-row-reverse")}>
 								<span className="py-1">Date: {project.date}</span>
-								<a target="_blank" href={project.link} rel="noreferrer" alt={i} className={project.link ? "" : "hidden"}>
-									<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 hover:stroke-blue-500 stroke-black dark:stroke-white" fill="none" viewBox="0 0 24 24" strokeWidth={1}>
-										<path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-									</svg>
-								</a>
+								<div className="flex gap-x-1">
+									<a target="_blank" href={project.link} rel="noreferrer" alt={i} className={project.link ? "" : "hidden"}>
+										<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 hover:stroke-blue-500 stroke-black dark:stroke-white" fill="none" viewBox="0 0 24 24" strokeWidth={1}>
+											<path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+										</svg>
+									</a>
+									<a target="_blank" href={project.github} rel="noreferrer" alt={i} className={project.github ? "" : "hidden"}>
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeWidth={1} strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 hover:stroke-blue-500 stroke-black dark:stroke-white">
+											<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+										</svg>
+									</a>
+								</div>
 							</div>
 						</div>
 						<div className="md:hidden relative w-full rounded-lg bg-contain bg-blend-overlay bg-black bg-opacity-50" style={{ backgroundImage: `url(${project.img})` }}>
