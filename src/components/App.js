@@ -100,7 +100,7 @@ export default function App() {
 			<div className="z-50">
 				<Header main={main} />
 			</div>
-			<div className="z-10 w-full h-full overflow-y-hidden overflow-x-hidden relative items-center bg-white">
+			<div id="body" className="z-10 w-full h-full overflow-y-hidden overflow-x-hidden relative items-center bg-white">
 				<div className="dark:text-gray-300 text-black">
 					<Home ref={homeRef} className="w-full" />
 					<div className="w-screen bg-white dark:bg-slate-900 z-10 text-sm md:text-base justify-center flex">

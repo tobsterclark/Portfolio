@@ -10,7 +10,7 @@ export default function Header() {
 	const [contactStyles, setContactStyles] = useState("border-transparent");
 	const [mobileStyles, setMobileStyles] = useState("hidden");
 	const [hamburgerClicked, setHamburgerClicked] = useState("");
-	const main = document.getElementById("main");
+	const main = document.getElementById("body");
 
 	useEffect(() => {
 		if (hash === "#about") {
@@ -37,9 +37,7 @@ export default function Header() {
 		}
 
 		return function cleanup() {
-			if (main) {
-				main.removeEventListener("scroll", changeHeader);
-			}
+			if (main) main.removeEventListener("scroll", changeHeader);
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [hash, main]);
