@@ -126,12 +126,12 @@ const About = forwardRef(({ onBackClick }, ref) => {
 			<div className="items-center flex flex-col pb-10 js-fadeIn w-full">
 				<h1 className="header1">Education</h1>
 				<div className="w-full lg:w-2/3 flex md:flex-row flex-col gap-10 shadow-2xl dark:bg-slate-700 rounded-lg p-2 sm:p-10">
-					<div className="items-start overflow-hidden sm:overflow-hidden py-5 justify-center flex md:flex-col gap-y-5 w-full md:w-1/3">
+					<div className="w-full items-start flex-wrap sm:flex-nowrap overflow-hidden py-5 justify-start sm:justify-center flex md:flex-col gap-y-5 md:w-1/3">
 						<button
 							onClick={() => {
 								setCurrentEducation("school");
 							}}
-							className={"px-2 py-2 text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 w-full " + (currentHighlight.school ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
+							className={"px-2 py-2 w-full text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 " + (currentHighlight.school ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
 						>
 							Year 11 Highschool
 						</button>
@@ -139,7 +139,7 @@ const About = forwardRef(({ onBackClick }, ref) => {
 							onClick={() => {
 								setCurrentEducation("hackerrank");
 							}}
-							className={"px-2 py-2 text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 w-full " + (currentHighlight.hackerrank ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
+							className={"px-2 py-2 w-full text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 " + (currentHighlight.hackerrank ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
 						>
 							Hacker Rank
 						</button>
@@ -147,7 +147,7 @@ const About = forwardRef(({ onBackClick }, ref) => {
 							onClick={() => {
 								setCurrentEducation("cert");
 							}}
-							className={"px-2 py-2 text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 w-full " + (currentHighlight.cert ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
+							className={"px-2 py-2 text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 " + (currentHighlight.cert ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
 						>
 							Current - Cert IV Information Technology
 						</button>
@@ -155,7 +155,7 @@ const About = forwardRef(({ onBackClick }, ref) => {
 							onClick={() => {
 								setCurrentEducation("diploma");
 							}}
-							className={"px-2 py-2 text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 w-full " + (currentHighlight.diploma ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
+							className={"px-2 py-2 w-full text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 " + (currentHighlight.diploma ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
 						>
 							Future - Diploma Information Technology
 						</button>
@@ -163,7 +163,7 @@ const About = forwardRef(({ onBackClick }, ref) => {
 							onClick={() => {
 								setCurrentEducation("bachelor");
 							}}
-							className={"px-2 py-2 text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 w-full " + (currentHighlight.bachelor ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
+							className={"px-2 py-2 w-fulltext-left border-b-2 md:border-b-0 md:border-l-2 duration-150 " + (currentHighlight.bachelor ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
 						>
 							Future - Bachelor Computer Science
 						</button>

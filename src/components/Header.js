@@ -10,7 +10,8 @@ export default function Header() {
 	const [contactStyles, setContactStyles] = useState("border-transparent");
 	const [mobileStyles, setMobileStyles] = useState("hidden");
 	const [hamburgerClicked, setHamburgerClicked] = useState("");
-	const main = document.getElementById("body");
+	const main = document.getElementById("main");
+	const body = document.getElementById("body");
 
 	useEffect(() => {
 		if (hash === "#about") {
@@ -46,11 +47,11 @@ export default function Header() {
 		if (mobileStyles === "hidden") {
 			setMobileStyles("flex");
 			setHamburgerClicked("animate-together");
-			main.classList.add("blur", "md:blur-none", "duration-1000");
+			body.classList.add("blur", "md:blur-none", "duration-1000");
 		} else {
 			setMobileStyles("hidden");
 			setHamburgerClicked("");
-			main.classList.remove("blur", "md:blur-none", "duration-1000");
+			body.classList.remove("blur", "md:blur-none", "duration-1000");
 		}
 	};
 

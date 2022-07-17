@@ -51,7 +51,7 @@ const Projects = forwardRef(({ onBackClick }, ref) => {
 		var iter = 0;
 
 		for (let i in allProjects) {
-			var left = true;
+			var left;
 			iter % 2 === 0 ? (left = true) : (left = false);
 			const project = allProjects[i];
 			const widgets = project.widgets.map((widget) => {
@@ -83,7 +83,7 @@ const Projects = forwardRef(({ onBackClick }, ref) => {
 								</div>
 							</div>
 						</div>
-						<div className="md:hidden relative w-full rounded-lg bg-contain bg-blend-overlay bg-black bg-opacity-50" style={{ backgroundImage: `url(${project.img})` }}>
+						<div className="md:hidden relative w-full rounded-lg bg-contain bg-blend-overlay bg-black bg-opacity-70" style={{ backgroundImage: `url(${project.img})` }}>
 							<img src={project.img} className="w-full invisible" alt={"An example of " + i} />
 							<div className="w-full flex md:contents absolute md:relative top-0 bottom-0 my-auto items-center">
 								<span className="h-fit md:w-2/3 xl:w-1/2 text-white dark:md:text-white md:text-black md:bg-white dark:md:bg-slate-700 rounded-lg md:shadow-2xl px-5 py-5">{project.content}</span>
