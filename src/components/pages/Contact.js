@@ -91,14 +91,14 @@ const Contact = forwardRef(({ onBackClick }, ref) => {
 							<span className="py-2">Name</span>
 							<span className={"text-red-500 text-xs " + nameError}>This is a required field</span>
 						</span>
-						<input className="border rounded-lg p-2 focus:bg-blue-300" type="text" onBlur={() => focusOut("name")} placeholder="Bob" onChange={(evt) => setName(evt.target.value)} value={name} />
+						<input className="border rounded-lg p-2 focus:bg-blue-300" type="text" onBlur={() => focusOut("name")} placeholder="John Doe" onChange={(evt) => setName(evt.target.value)} value={name} />
 					</div>
 					<div className="flex flex-col gap-y-2 w-2/3 sm:w-1/3">
 						<span className="flex items-center gap-x-3">
 							<span className="py-2">Email</span>
 							<span className={"text-red-500 text-xs " + emailError}>Must be a valid email address</span>
 						</span>
-						<input className="border rounded-lg p-2 focus:bg-blue-300" onBlur={() => focusOut("email")} placeholder="bob@realemail.com" onChange={(evt) => setEmail(evt.target.value)} value={email} />
+						<input className="border rounded-lg p-2 focus:bg-blue-300" onBlur={() => focusOut("email")} placeholder="john@doe.com" onChange={(evt) => setEmail(evt.target.value)} value={email} />
 					</div>
 				</div>
 
