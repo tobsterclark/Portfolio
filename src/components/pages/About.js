@@ -131,7 +131,7 @@ const About = forwardRef(({ onBackClick }, ref) => {
 							onClick={() => {
 								setCurrentEducation("school");
 							}}
-							className={"px-2 py-2 w-full text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 " + (currentHighlight.school ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
+							className={"p-2 w-full text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 " + (currentHighlight.school ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
 						>
 							Year 11 Highschool
 						</button>
@@ -139,7 +139,7 @@ const About = forwardRef(({ onBackClick }, ref) => {
 							onClick={() => {
 								setCurrentEducation("hackerrank");
 							}}
-							className={"px-2 py-2 w-full text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 " + (currentHighlight.hackerrank ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
+							className={"p-2 w-full text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 " + (currentHighlight.hackerrank ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
 						>
 							Hacker Rank
 						</button>
@@ -147,7 +147,7 @@ const About = forwardRef(({ onBackClick }, ref) => {
 							onClick={() => {
 								setCurrentEducation("cert");
 							}}
-							className={"px-2 py-2 text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 " + (currentHighlight.cert ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
+							className={"p-2 w-full text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 " + (currentHighlight.cert ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
 						>
 							Current - Cert IV Information Technology
 						</button>
@@ -155,7 +155,7 @@ const About = forwardRef(({ onBackClick }, ref) => {
 							onClick={() => {
 								setCurrentEducation("diploma");
 							}}
-							className={"px-2 py-2 w-full text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 " + (currentHighlight.diploma ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
+							className={"p-2 w-full text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 " + (currentHighlight.diploma ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
 						>
 							Future - Diploma Information Technology
 						</button>
@@ -163,7 +163,7 @@ const About = forwardRef(({ onBackClick }, ref) => {
 							onClick={() => {
 								setCurrentEducation("bachelor");
 							}}
-							className={"px-2 py-2 w-fulltext-left border-b-2 md:border-b-0 md:border-l-2 duration-150 " + (currentHighlight.bachelor ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
+							className={"p-2 w-full text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 " + (currentHighlight.bachelor ? "border-blue-500" : "border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")}
 						>
 							Future - Bachelor Computer Science
 						</button>
