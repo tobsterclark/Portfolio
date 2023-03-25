@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import profile from "../images/profile.jpg";
+import pdf from "../resume.pdf";
 
 export default function Header() {
 	const [navbar, setNavBar] = useState("bg-transparent");
@@ -95,9 +96,9 @@ export default function Header() {
 							<path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
 						</svg>
 					</button>
-					<Link to="/resume" className="opacity-100 flex-none btn-primary shadow-xl mx-10 ">
+					<a href={pdf} className="opacity-100 flex-none btn-primary shadow-xl mx-10 ">
 						Resume
-					</Link>
+					</a>
 				</div>
 			</div>
 

@@ -32,49 +32,6 @@ const About = forwardRef(({ onBackClick }, ref) => {
 						<li className="px-2">Leader of Production & Media Team - NBCS, 2019</li>
 						<li className="px-2">STEM Leader - NBCS 2019</li>
 						<li className="px-2">Community Award x 3 - NBCS 2015-2019</li>
-						<li className="px-2">2IC - NBCS 2016</li>
-					</ul>
-				</div>
-			);
-		} else if (currentEducation === "cert") {
-			return (
-				<div className="w-full flex flex-col gap-y-5 justify-end">
-					<div className="flex flex-col">
-						<span className="text-2xl font-masthead">
-							Current: Certificate IV in Information Technology <span className="font-sans">@TAFE Digital</span>
-						</span>
-						<span className="text-xl">2022</span>
-					</div>
-					<ul className="px-5 list-disc w-full">
-						<li className="px-2">In progress, 1/3 completed in 3 weeks</li>
-					</ul>
-				</div>
-			);
-		} else if (currentEducation === "diploma") {
-			return (
-				<div className="w-full flex flex-col gap-y-5 justify-end">
-					<div className="flex flex-col">
-						<span className="text-2xl font-masthead">
-							Future: Diploma in Software Development <span className="font-sans">@Tafe Hornsby</span>
-						</span>
-						<span className="text-xl">2022</span>
-					</div>
-					<ul className="px-5 list-disc w-full">
-						<li className="px-2">Planned for June to November in 2022</li>
-					</ul>
-				</div>
-			);
-		} else if (currentEducation === "bachelor") {
-			return (
-				<div className="w-full flex flex-col gap-y-5 justify-end">
-					<div className="flex flex-col">
-						<span className="text-2xl font-masthead">
-							Future: Bachelor of Computer Engineering <span className="font-sans">@UNSW or UTS</span>
-						</span>
-						<span className="text-xl">2023</span>
-					</div>
-					<ul className="px-5 list-disc w-full">
-						<li className="px-2">Planned for either UNSW or UTS, starting in 2023</li>
 					</ul>
 				</div>
 			);
@@ -148,38 +105,6 @@ const About = forwardRef(({ onBackClick }, ref) => {
 							}
 						>
 							Hacker Rank
-						</button>
-						<button
-							onClick={() => {
-								setCurrentEducation("cert");
-							}}
-							className={
-								"p-2 w-full text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 " + (currentHighlight.cert ? "border-blue-500" : "border-slate-300 border-2 sm:border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")
-							}
-						>
-							Current - Cert IV Information Technology
-						</button>
-						<button
-							onClick={() => {
-								setCurrentEducation("diploma");
-							}}
-							className={
-								"p-2 w-full text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 " +
-								(currentHighlight.diploma ? "border-blue-500" : "border-slate-300 border-2 sm:border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")
-							}
-						>
-							Future - Diploma Information Technology
-						</button>
-						<button
-							onClick={() => {
-								setCurrentEducation("bachelor");
-							}}
-							className={
-								"p-2 w-full text-left border-b-2 md:border-b-0 md:border-l-2 duration-150 " +
-								(currentHighlight.bachelor ? "border-blue-500" : "border-slate-300 border-2 sm:border-transparent rounded-lg bg-opacity-50 hover:bg-blue-300 hover:text-black")
-							}
-						>
-							Future - Bachelor Computer Science
 						</button>
 					</div>
 					<div className="md:w-2/3 px-5">{currentText()}</div>
